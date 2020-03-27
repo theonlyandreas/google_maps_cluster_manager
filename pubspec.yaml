@@ -13,6 +13,9 @@ dependencies:
 
   geohash: ^0.2.1
   google_maps_flutter: ^0.5.22
+  geoflutterfire: 
+    git:
+      url: git@github.com:andiwashere/GeoFlutterFire.git
 
 dev_dependencies:
   flutter_test:
