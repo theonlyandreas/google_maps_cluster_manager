@@ -33,10 +33,15 @@ class Cluster<T> {
   List<dynamic> get zoomAndCenter {
     // TODO: find bounding box of clusteritems and calculate zoom level and center position.
     // Could this be done early and saved as a property of this cluster?
+
+    print('DEBUG - in zoomAndCenter:\n' + 
+          'location: $location\n' + 
+          'markers is empty?: ${markers.isEmpty}');
+
     Coordinates center = Coordinates(location.latitude, location.longitude);
     List<double> dists = markers.map ((m) {
       Coordinates markerCoord = Coordinates(m.location.latitude, m.location.longitude);
-      GeoFirePoint.distanceBetween(to: markerCoord, from: center);
+      return GeoFirePoint.distanceBetween(to: markerCoord, from: center);
     }).toList();
 
     Map<double, double> radiusToZoom = {
