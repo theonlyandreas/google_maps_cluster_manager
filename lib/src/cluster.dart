@@ -55,11 +55,11 @@ class Cluster<T> {
     double key = radiusToZoom.keys.firstWhere((rad) {
       return radius <= rad;
     });
-    double zoom = radiusToZoom[key];
+    double zoom = 0.95 * radiusToZoom[key];
 
     print('DEBUG - in zoomAndCenter:\n' +
         'location: $location\n' +
-        'markers is empty?: ${markers.isEmpty}' + 
+        'markers is empty?: ${markers.isEmpty}\n' + 
         'Radius: $radius\n' + 
         'Zoom: $zoom');
 
