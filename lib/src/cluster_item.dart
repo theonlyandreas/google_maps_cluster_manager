@@ -5,7 +5,8 @@ class ClusterItem<T> {
   final LatLng location;
   final String geohash;
   final T item;
+  final dynamic value;
 
-  ClusterItem(this.location, {this.item})
+  ClusterItem(this.location, {this.item, this.value})
       : geohash = Util.encode4(location.latitude, location.longitude, 20);
 }
