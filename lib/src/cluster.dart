@@ -15,8 +15,12 @@ class Cluster<T> {
                 markers.length,
             markers.fold<double>(0.0, (p, c) => p + c.location.longitude) /
                 markers.length),
-        this.meanValue =
-            markers.fold(0.0, (currentMean, item) => currentMean + item.value);
+        this.meanValue = markers.fold<double>(0.0, (currentMean, item) {
+          if (item.value != null)
+            return currentMean + item.value;
+          else
+            return currentMean;
+        });
 
   Iterable<T> get items => markers.map((m) => m.item);
 
