@@ -57,7 +57,7 @@ class Cluster<T> {
     });
 
     double discount = 0.92;
-    if (radius <= 0.05) {
+    if (radius <= 0.015) {
       discount = 1.0;
     }
 
