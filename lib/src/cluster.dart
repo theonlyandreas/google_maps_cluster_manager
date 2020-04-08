@@ -23,6 +23,11 @@ class Cluster<T> {
             return currentMean;
         });
 
+  const Cluster.empty()
+      : this.markers = const [],
+        this.location = const LatLng(0.0, 0.0),
+        this.meanValue = 0.0;
+
   Iterable<T> get items => markers.map((m) => m.item);
 
   int get count => markers.length;
