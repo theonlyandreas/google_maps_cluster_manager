@@ -46,13 +46,13 @@ class ClusterManager<T> {
     if (withUpdate) updateMap();
   }
 
-  void updateMap() {
-    updateClusters();
+  Future<void> updateMap() async {
+    await updateClusters();
   }
 
-  void setItems(List<ClusterItem<T>> newItems) {
+  Future<void> setItems(List<ClusterItem<T>> newItems) async {
     _items = newItems;
-    updateMap();
+    await updateMap();
   }
 
   void addItem(ClusterItem<T> newItem) {
@@ -67,7 +67,7 @@ class ClusterManager<T> {
     }
   }
 
-  void updateClusters() async {
+  Future<void> updateClusters() async {
     List<Cluster<T>> mapMarkers = await getMarkers();
 
     final Set<Marker> markers =
