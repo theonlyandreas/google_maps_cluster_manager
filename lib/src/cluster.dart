@@ -8,6 +8,7 @@ import 'package:google_maps_cluster_manager/src/radiusToZoom.dart';
 class Cluster<T> {
   final LatLng location;
   final double meanValue;
+  final bool isAtOneLocation;
   final Iterable<ClusterItem<T>> markers;
 
   Cluster(this.markers)
@@ -21,11 +22,15 @@ class Cluster<T> {
             return currentMean + item.value;
           else
             return currentMean;
+        }),
+        this.isAtOneLocation = markers.every((item) {
+          return markers.first.geohash == item.geohash;
         });
 
   const Cluster.empty()
       : this.markers = const [],
         this.location = const LatLng(0.0, 0.0),
+        this.isAtOneLocation = false,
         this.meanValue = 0.0;
 
   Iterable<T> get items => markers.map((m) => m.item);
