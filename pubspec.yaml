@@ -16,7 +16,7 @@ dependencies:
   google_maps_flutter: ^0.5.22
   geoflutterfire: 
     git:
-      url: git@github.com:andiwashere/GeoFlutterFire.git
+      url: git@github.com:theonlyandreas/GeoFlutterFire.git
 
 dev_dependencies:
   flutter_test:
